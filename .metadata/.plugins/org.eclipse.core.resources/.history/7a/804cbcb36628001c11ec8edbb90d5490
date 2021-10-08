@@ -70,7 +70,7 @@ public class Service1Controller {
 
 	@GetMapping(path = "/readData", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<MessageBean>> readExistingData() {
-
+        
 	}
 
 }

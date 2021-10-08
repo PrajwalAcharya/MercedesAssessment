@@ -56,13 +56,12 @@ public class Service1Controller {
 
 	@PutMapping(path = "/editMessage/id/{id}/salary/{salary}")
 	public ResponseEntity<String> updateMessage(@PathVariable("id") Long id, @PathVariable("salary") double salary,
-			@RequestParam String fileType) throws JsonProcessingException {
+			@RequestParam String fileType) {
 		MessageBean messageBean = new MessageBean();
 		messageBean.setId(id);
 		messageBean.setSalary(String.valueOf(salary));
 		MessageDataBean messageDataBean = messageService.encryptMessage(messageBean, fileType);
-		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String message = ow.writeValueAsString(messageDataBean);
+		String message = encryptedId + "," + encryptedSalary + "," + encryptedFileType;
 		jmsTemplate.convertAndSend(queue, message);
 		return new ResponseEntity<String>("Successfully updated id " + id + " with salary " + salary,
 				HttpStatus.CREATED);

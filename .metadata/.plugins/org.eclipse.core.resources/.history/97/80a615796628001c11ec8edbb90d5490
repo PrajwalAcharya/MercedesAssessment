@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.mercedes.publisherService.Service1.EncDec.EncryptDecrypt;
 import com.mercedes.publisherService.Service1.model.MessageBean;
 import com.mercedes.publisherService.Service1.model.MessageDataBean;
 import com.mercedes.publisherService.Service1.protobuf.ProtoMessage.MessageData;
@@ -56,13 +57,12 @@ public class Service1Controller {
 
 	@PutMapping(path = "/editMessage/id/{id}/salary/{salary}")
 	public ResponseEntity<String> updateMessage(@PathVariable("id") Long id, @PathVariable("salary") double salary,
-			@RequestParam String fileType) throws JsonProcessingException {
-		MessageBean messageBean = new MessageBean();
-		messageBean.setId(id);
-		messageBean.setSalary(String.valueOf(salary));
-		MessageDataBean messageDataBean = messageService.encryptMessage(messageBean, fileType);
-		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String message = ow.writeValueAsString(messageDataBean);
+			@RequestParam String fileType) {
+		String secret = "ConnectedCars";
+		String encryptedId = EncryptDecrypt.encrypt(String.valueOf(id), secret);
+		String encryptedSalary = EncryptDecrypt.encrypt(String.valueOf(salary), secret);
+		String encryptedFileType = EncryptDecrypt.encrypt(fileType, secret);
+		String message = encryptedId + "," + encryptedSalary + "," + encryptedFileType;
 		jmsTemplate.convertAndSend(queue, message);
 		return new ResponseEntity<String>("Successfully updated id " + id + " with salary " + salary,
 				HttpStatus.CREATED);
