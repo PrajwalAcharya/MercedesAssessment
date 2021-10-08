@@ -1,0 +1,10 @@
+package com.mercedes.consumerService.Service2.EncDec;
+
+import javax.crypto.spec.SecretKeySpec;
+
+public class EncryptDecrypt {
+
+	private static SecretKeySpec secretKey;
+	private static byte[] key;
+
+}

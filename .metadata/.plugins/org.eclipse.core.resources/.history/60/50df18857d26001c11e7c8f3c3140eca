@@ -1,0 +1,81 @@
+package com.mercedes.publisherService.Service1.model;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+public class MessageDataBean {
+	
+	private Long id;
+	private String name;
+	private String dob;
+	private String salary;
+	private int age;
+    private String fileType;
+    
+	public MessageDataBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public MessageDataBean(Long id, String name, String dob, String salary, int age, String fileType) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dob = dob;
+		this.salary = salary;
+		this.age = age;
+		this.fileType = fileType;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public String getSalary() {
+		return salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+    
+
+}

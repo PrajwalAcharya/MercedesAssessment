@@ -1,0 +1,11 @@
+package com.mercedes.publisherService.Service1.service;
+
+import com.mercedes.publisherService.Service1.model.MessageBean;
+
+public interface MessageService {
+	
+	public MessageBean validateMessage(MessageBean message);
+	public MessageBean encryptMessage(MessageBean message);
+	public MessageBean decryptMessage(MessageBean message);
+    
+}

@@ -1,0 +1,5 @@
+package com.mercedes.consumerService.Service2.EncDec;
+
+public class EncryptDecrypt {
+
+}

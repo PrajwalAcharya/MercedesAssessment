@@ -1,0 +1,27 @@
+package com.mercedes.publisherService.Service1.service;
+
+import org.springframework.stereotype.Service;
+
+import com.mercedes.publisherService.Service1.EncDec.EncryptDecrypt;
+import com.mercedes.publisherService.Service1.model.MessageBean;
+import com.mercedes.publisherService.Service1.model.MessageDataBean;
+
+@Service
+public class MessageServiceImpl implements MessageService{
+
+	@Override
+	public MessageDataBean encryptMessage(MessageBean message) {
+		String secret = "ConnectedCars";
+		MessageDataBean messageDataBean = new MessageDataBean();
+		messageDataBean.setId(EncryptDecrypt.encrypt(String.valueOf(message.getId()), 
+				secret));
+		return messageDataBean;
+	}
+
+	@Override
+	public MessageBean decryptMessage(MessageBean message) {
+		return null;
+	}
+
+	
+}

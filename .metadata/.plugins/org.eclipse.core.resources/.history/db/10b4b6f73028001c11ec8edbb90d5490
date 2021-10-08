@@ -1,0 +1,36 @@
+package com.mercedes.consumerService.Service2.service;
+
+import com.mercedes.consumerService.Service2.EncDec.EncryptDecrypt;
+import com.mercedes.consumerService.Service2.model.MessageBean;
+import com.mercedes.consumerService.Service2.model.MessageDataBean;
+import com.mercedes.consumerService.Service2.protobuf.ProtoMessage.MessageData;
+
+public class MessageServiceImpl implements MessageService {
+
+	@Override
+	public MessageDataBean encryptMessage(MessageBean message) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MessageDataBean decryptMessage(MessageData message) {
+		// TODO Auto-generated method stub
+		String secret = "ConnectedCars";
+		MessageDataBean messageDataBean = new MessageDataBean();
+		messageDataBean.setId(EncryptDecrypt.decrypt(String.valueOf(message.getId()), secret));
+		messageDataBean.setName(EncryptDecrypt.decrypt(message.getName(), secret));
+		messageDataBean.setDob(EncryptDecrypt.decrypt(message.getDob(), secret));
+		messageDataBean.setSalary(EncryptDecrypt.decrypt(message.getSalary(), secret));
+		messageDataBean.setAge(EncryptDecrypt.decrypt(String.valueOf(message.getAge()), secret));
+		messageDataBean.setFileType(EncryptDecrypt.decrypt(message.getFileType(), secret));
+		return messageDataBean;
+	}
+
+	@Override
+	public void saveMessageToFile(MessageDataBean messageDataBean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

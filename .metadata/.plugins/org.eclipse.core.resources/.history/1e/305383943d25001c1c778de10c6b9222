@@ -1,0 +1,5 @@
+package com.mercedes.publisherService.Service1.EncDec;
+
+public class EncryptDecrypt {
+
+}

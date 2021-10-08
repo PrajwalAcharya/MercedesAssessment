@@ -1,0 +1,9 @@
+package com.mercedes.publisherService.Service1.model;
+
+public class MessageBean {
+
+	public MessageBean() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
