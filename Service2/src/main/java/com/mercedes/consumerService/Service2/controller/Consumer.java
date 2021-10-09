@@ -11,6 +11,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercedes.consumerService.Service2.model.MessageDataBean;
 import com.mercedes.consumerService.Service2.service.MessageService;
 
+/**
+ * This is the Consumer class of Service 2 which receives messages from Service
+ * 1 via Active MQ and saves or updates messages in CSV file.
+ * 
+ * @author PrajwalSAcharya
+ *
+ */
 @Component
 @EnableJms
 public class Consumer {

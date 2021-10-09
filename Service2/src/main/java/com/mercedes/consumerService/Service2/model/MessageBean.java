@@ -8,7 +8,7 @@ public class MessageBean {
 
 	private String dob;
 
-	private Double salary;
+	private String salary;
 
 	private int age;
 
@@ -16,7 +16,7 @@ public class MessageBean {
 
 	}
 
-	public MessageBean(Long id, String name, String dob, Double salary, int age) {
+	public MessageBean(Long id, String name, String dob, String salary, int age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -49,11 +49,11 @@ public class MessageBean {
 		this.dob = dob;
 	}
 
-	public Double getSalary() {
+	public String getSalary() {
 		return salary;
 	}
 
-	public void setSalary(Double salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
 	}
 

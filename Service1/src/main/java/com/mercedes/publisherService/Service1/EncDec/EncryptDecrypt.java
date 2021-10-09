@@ -1,5 +1,9 @@
 package com.mercedes.publisherService.Service1.EncDec;
 
+/**
+ * This is the class which contains Encryption and Decryption logic.
+ * @author PrajwalSAcharya
+ */
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,6 +18,13 @@ public class EncryptDecrypt {
 	private static SecretKeySpec secretKey;
 	private static byte[] key;
 
+	/**
+	 * This method is used to set the key for encryption and decryption.
+	 * 
+	 * @param myKey
+	 *            - secret key passed in. Here "ConnectedCars" is used as secret
+	 *            key.
+	 */
 	public static void setKey(String myKey) {
 		MessageDigest sha = null;
 		try {
@@ -29,6 +40,13 @@ public class EncryptDecrypt {
 		}
 	}
 
+	/**
+	 * This method is responsible for encryption using secret key.
+	 * 
+	 * @param strToEncrypt
+	 * @param secret
+	 * @return encrypted string.
+	 */
 	public static String encrypt(String strToEncrypt, String secret) {
 		try {
 			setKey(secret);
@@ -41,6 +59,13 @@ public class EncryptDecrypt {
 		return null;
 	}
 
+	/**
+	 * This method is responsible for decryption of the String passed in.
+	 * 
+	 * @param strToDecrypt
+	 * @param secret
+	 * @return decrypted string.
+	 */
 	public static String decrypt(String strToDecrypt, String secret) {
 		try {
 			setKey(secret);
